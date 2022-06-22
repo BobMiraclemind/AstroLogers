@@ -518,6 +518,7 @@ public class ChatActivity extends AppCompatActivity {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                     AllStaticMethods.saveException(e);
                 }
 
@@ -525,7 +526,7 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SaveChatResponseModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), AppConstants.TOAST_MESSAGES, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -596,6 +597,7 @@ public class ChatActivity extends AppCompatActivity {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                     AllStaticMethods.saveException(e);
                 }
 
@@ -603,8 +605,7 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SaveChatResponseModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), AppConstants.TOAST_MESSAGES, Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -654,13 +655,14 @@ public class ChatActivity extends AppCompatActivity {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                     AllStaticMethods.saveException(e);
                 }
             }
 
             @Override
             public void onFailure(Call<ChatListResponseModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), AppConstants.TOAST_MESSAGES, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

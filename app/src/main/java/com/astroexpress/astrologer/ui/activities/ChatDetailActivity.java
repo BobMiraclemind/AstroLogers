@@ -17,6 +17,7 @@ import com.astroexpress.astrologer.models.response.ChatListResponseModel;
 import com.astroexpress.astrologer.network.RetrofitClient;
 import com.astroexpress.astrologer.utils.AllStaticMethods;
 import com.astroexpress.astrologer.utils.AppConstants;
+import com.astroexpress.astrologer.utils.SharedPreferenceManager;
 import com.astroexpress.astrologer.utils.StaticFields;
 import com.bumptech.glide.Glide;
 
@@ -74,7 +75,7 @@ public class ChatDetailActivity extends AppCompatActivity {
     }
 
     private void callGetChatApi() {
-        RetrofitClient.getApiClient().getChatList(userId, StaticFields.astrologerData.getAstrologerId()).enqueue(new Callback<ChatListResponseModel>() {
+        RetrofitClient.getApiClient().getChatList(userId, SharedPreferenceManager.getUserData(getApplicationContext()).getAstrologerId()).enqueue(new Callback<ChatListResponseModel>() {
             @Override
             public void onResponse(Call<ChatListResponseModel> call, Response<ChatListResponseModel> response) {
 
@@ -122,13 +123,14 @@ public class ChatDetailActivity extends AppCompatActivity {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                     AllStaticMethods.saveException(e);
                 }
             }
 
             @Override
             public void onFailure(Call<ChatListResponseModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), AppConstants.TOAST_MESSAGES, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

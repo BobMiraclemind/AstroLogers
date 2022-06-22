@@ -23,7 +23,9 @@ import com.astroexpress.astrologer.models.ProfileGalleryModel;
 import com.astroexpress.astrologer.models.response.AstrologerContentModel;
 import com.astroexpress.astrologer.network.RetrofitClient;
 import com.astroexpress.astrologer.utils.AllStaticMethods;
+import com.astroexpress.astrologer.utils.AppConstants;
 import com.astroexpress.astrologer.utils.NetworkStats;
+import com.astroexpress.astrologer.utils.SharedPreferenceManager;
 import com.astroexpress.astrologer.utils.StaticFields;
 import com.bumptech.glide.Glide;
 
@@ -76,7 +78,7 @@ public class AstroProfileActivity extends AppCompatActivity {
     }
 
     private void callAstrologerContentApi() {
-        RetrofitClient.getApiClient().getAstrologerContent(StaticFields.astrologerData.getAstrologerId()).enqueue(new Callback<AstrologerContentModel>() {
+        RetrofitClient.getApiClient().getAstrologerContent(SharedPreferenceManager.getUserData(getApplicationContext()).getAstrologerId()).enqueue(new Callback<AstrologerContentModel>() {
             @Override
             public void onResponse(Call<AstrologerContentModel> call, Response<AstrologerContentModel> response) {
                 try {
@@ -101,16 +103,21 @@ public class AstroProfileActivity extends AppCompatActivity {
                                 }
                             });
                             binding.galleryView.setAdapter(profileGalleryAdapter);
+                        }else {
+                            Toast.makeText(AstroProfileActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }
+                    }else {
+                        Toast.makeText(AstroProfileActivity.this, AppConstants.TOAST_MESSAGES, Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
+                    e.printStackTrace();
                     AllStaticMethods.saveException(e);
                 }
             }
 
             @Override
             public void onFailure(Call<AstrologerContentModel> call, Throwable t) {
-
+                Toast.makeText(AstroProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

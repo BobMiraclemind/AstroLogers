@@ -19,13 +19,13 @@
             android:title="Followers"
             android:icon="@drawable/ic_followers"/>
 
-        <item android:id="@+id/chat_history"
-            android:title="Chat History"
-            android:icon="@drawable/navigation_chat_history"/>
-
         <item android:id="@+id/call_history"
             android:title="Call History"
             android:icon="@drawable/navigation_call_history"/>
+
+        <item android:id="@+id/chat_history"
+            android:title="Chat History"
+            android:icon="@drawable/navigation_chat_history"/>
 
         <item android:id="@+id/notifications"
             android:title="Notifications"
