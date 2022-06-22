@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.ChatActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/left_back"
+                    android:visibility="gone"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/image"
+                    android:layout_width="43dp"
+                    android:layout_height="43dp"
+                    android:src="@drawable/place_holder"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius="17dp"
+                    app:riv_border_color="@color/text_color"
+                    app:riv_border_width="1dp"
+                    app:layout_constraintStart_toEndOf="@id/back"
+                    app:layout_constraintTop_toTopOf="@id/back"
+                    app:layout_constraintBottom_toBottomOf="@id/back"/>
+
+                <TextView
+                    android:id="@+id/firstname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="User"
+                    android:textSize="20dp"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintStart_toEndOf="@id/image"
+                    app:layout_constraintTop_toTopOf="@id/image" />
+
+                <TextView
+                    android:id="@+id/lastname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Watson"
+                    android:textSize="20dp"
+                    android:visibility="gone"
+                    android:textColor="@color/text_color"
+                    app:layout_constraintStart_toEndOf="@id/firstname"
+                    app:layout_constraintTop_toTopOf="@id/image" />
+
+                <TextView
+                    android:id="@+id/created_date_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01:46"
+                    android:textColor="#E57373"
+                    app:layout_constraintTop_toBottomOf="@id/firstname"
+                    app:layout_constraintStart_toStartOf="@id/firstname"/>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" mins"
+                    android:visibility="gone"
+                    android:textColor="#E57373"
+                    app:layout_constraintStart_toEndOf="@id/created_date_time"
+                    app:layout_constraintBottom_toBottomOf="@id/created_date_time"/>
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Typing..."
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/textView"
+                    app:layout_constraintBottom_toBottomOf="@id/created_date_time"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/start"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_info"
+                    android:backgroundTint="#E57373"
+                    android:layout_marginRight="10dp"
+                    android:text="End"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    app:cornerRadius="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:trackColor="@color/base_blue"
+        app:indicatorColor="@color/text_color"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintBottom_toTopOf="@id/bottom_container"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintBottom_toTopOf="@id/bottom_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llTypingStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:visibility="gone">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="65dp"
+                    android:layout_height="50dp"
+                    app:lottie_loop="true"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/typing"
+                    android:layout_marginHorizontal="15dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="18dp"
+        android:layout_margin="15dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message_bg">
+
+            <ImageButton
+                android:id="@+id/add_media"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add_media"
+                android:padding="15dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintTop_toTopOf="@id/send"
+                app:layout_constraintBottom_toBottomOf="@id/send"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <EditText
+                android:id="@+id/message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Type message"
+                android:lineSpacingExtra="5dp"
+                android:maxLines="4"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/send"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/add_media"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <soup.neumorphism.NeumorphImageButton
+                android:id="@+id/send"
+                style="@style/Widget.Neumorph.ImageButton"
+                android:theme="@style/SendShapeAppearance"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/ic_send"
+                app:neumorph_shapeType="flat"
+                android:padding="20dp"
+                app:layout_constraintHorizontal_bias=".9"
+                app:neumorph_shadowElevation="5dp"
+                app:neumorph_shadowColorDark="#29000000"
+                app:neumorph_shadowColorLight="#4DFFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

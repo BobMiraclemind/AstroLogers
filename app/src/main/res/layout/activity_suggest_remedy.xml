@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.SuggestRemedyActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Suggest Remedy"
+            app:titleTextColor="@color/text_color"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:background="#F8F8F8"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:text="Type:"
+                android:visibility="visible"
+                android:textColor="@color/dark_grey"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/textView">
+
+                <soup.neumorphism.NeumorphButton
+                    android:id="@+id/free_btn"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:minHeight="70dp"
+                    android:layout_weight="1"
+                    android:text="Free Remedy"
+                    android:textAllCaps="false"
+                    android:textColor="@color/dark_grey"
+                    android:textStyle="bold"
+                    android:theme="@style/SuggestRemedyShapeAppearance"
+                    app:neumorph_shapeAppearance="@style/RatingEditText"
+                    app:neumorph_backgroundColor="@color/base_blue"
+                    app:neumorph_shadowColorDark="#1A000000"
+                    app:neumorph_shadowColorLight="#0D000000"
+                    app:neumorph_shapeType="pressed" />
+
+                <soup.neumorphism.NeumorphButton
+                    android:id="@+id/paid_button"
+                    style="@style/Widget.Neumorph.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="70dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="Paid Remedy"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold"
+                    app:neumorph_shapeAppearance="@style/RatingEditText"
+                    android:theme="@style/SuggestRemedyShapeAppearance"
+                    app:neumorph_shadowColorDark="#1A000000"
+                    app:neumorph_shadowColorLight="#0D000000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/free_remedy_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout4">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Description:"
+                    android:textColor="@color/dark_grey"
+                    android:textStyle="bold" />
+
+                <soup.neumorphism.NeumorphCardView
+                    style="@style/Widget.Neumorph.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:theme="@style/SuggestRemedyShapeAppearance"
+                    app:neumorph_shapeAppearance="@style/RatingEditText"
+                    app:neumorph_shadowColorDark="#1A000000"
+                    app:neumorph_shadowColorLight="#1A000000"
+                    app:neumorph_shapeType="pressed"
+                    app:neumorph_strokeColor="@color/base_blue"
+                    app:neumorph_strokeWidth="1dp">
+
+                    <EditText
+                        android:id="@+id/free_remedy_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:gravity="start"
+                        android:textCursorDrawable="@drawable/custom_cursor"
+                        android:minHeight="250dp"
+                        android:hint="Write about remedy..."
+                        android:padding="15dp"
+                        android:textColor="@color/text_color"
+                        android:textColorHint="@color/text_color" />
+
+                </soup.neumorphism.NeumorphCardView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/free_suggest_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/text_color"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Suggest"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/paid_remedy_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout4">
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/textView">
+
+                    <soup.neumorphism.NeumorphButton
+                        android:id="@+id/astro_market"
+                        style="@style/Widget.Neumorph.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:text="Astromarket"
+                        android:textAllCaps="false"
+                        android:textColor="@color/dark_grey"
+                        android:textStyle="bold"
+                        android:theme="@style/SuggestRemedyShapeAppearance"
+                        app:neumorph_backgroundColor="@color/base_blue"
+                        app:neumorph_shadowColorDark="#1A000000"
+                        app:neumorph_shadowColorLight="#0D000000"
+                        app:neumorph_shapeType="pressed" />
+
+                    <soup.neumorphism.NeumorphButton
+                        android:id="@+id/create_your_own"
+                        style="@style/Widget.Neumorph.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        android:text="Create Your Own"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_color"
+                        android:textStyle="bold"
+                        android:theme="@style/SuggestRemedyShapeAppearance"
+                        app:neumorph_shadowColorDark="#1A000000"
+                        app:neumorph_shadowColorLight="#0D000000" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/coming_soon"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:textSize="24dp"
+                    android:gravity="center"
+                    android:text="Coming Soon"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+                        android:visibility="visible"
+                        android:text="Create your own Remedy"
+                        android:textColor="@color/text_color"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Category:"
+                        android:textColor="@color/dark_grey"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                    <Spinner
+                        android:id="@+id/select_category"
+                        android:theme="@style/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/suggest_remedy_text_bg"
+                        android:drawableRight="@drawable/wallet_spinner_bg"
+                        android:hint="Select Product Category"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/text_color"
+                        android:textColorHint="@color/text_color"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Name:"
+                        android:textColor="@color/dark_grey"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/suggest_remedy_text_bg"
+                        android:hint="Enter Product Name"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textCursorDrawable="@drawable/custom_cursor"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/text_color"
+                        android:textColorHint="@color/text_color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Price:"
+                        android:visibility="visible"
+                        android:textColor="@color/dark_grey"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/product_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/suggest_remedy_text_bg"
+                        android:hint="Enter Price in INR(₹)"
+                        android:visibility="visible"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:textCursorDrawable="@drawable/custom_cursor"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/text_color"
+                        android:textColorHint="@color/text_color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Attachment:"
+                        android:textColor="@color/dark_grey"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <soup.neumorphism.NeumorphImageButton
+                            android:id="@+id/add_image"
+                            style="@style/Widget.Neumorph.Button"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:neumorph_shapeAppearance="@style/RatingEditText"
+                            android:src="@drawable/suggest_remedy_add"
+                            app:neumorph_shadowColorLight="#26000000" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/remedy_img_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:itemCount="3"
+                            tools:listitem="@layout/single_suggest_remedy_attachment"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Description:"
+                        android:textColor="@color/dark_grey"
+                        android:textStyle="bold" />
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:theme="@style/SuggestRemedyShapeAppearance"
+                        app:neumorph_shadowColorDark="#1A000000"
+                        app:neumorph_shadowColorLight="#1A000000"
+                        app:neumorph_shapeType="pressed"
+                        app:neumorph_shapeAppearance="@style/RatingEditText"
+                        app:neumorph_strokeColor="@color/base_blue"
+                        app:neumorph_strokeWidth="1dp">
+
+                        <EditText
+                            android:id="@+id/paid_remedy_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:gravity="start"
+                            android:textCursorDrawable="@drawable/custom_cursor"
+                            android:minHeight="200dp"
+                            android:hint="Enter Description about Product"
+                            android:padding="10dp"
+                            android:textColor="@color/text_color"
+                            android:textColorHint="@color/text_color" />
+
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/paid_suggest_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/text_color"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Suggest"
+                        android:textAllCaps="false"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

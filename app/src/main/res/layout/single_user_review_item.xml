@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="30dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/profile_img"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/place_holder"
+        app:riv_corner_radius="8dp"
+        app:riv_border_width="1dp"
+        app:riv_border_color="@color/base_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Emma Watson"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/text_color"
+        app:layout_constraintStart_toEndOf="@id/profile_img"
+        app:layout_constraintTop_toTopOf="@id/profile_img"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/ListRatingBar"
+        android:rating="3"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        app:layout_constraintBottom_toBottomOf="@id/profile_img"
+        app:layout_constraintStart_toStartOf="@id/firstname"/>
+
+    <TextView
+        android:id="@+id/review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy"
+        app:layout_constraintTop_toBottomOf="@id/profile_img"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

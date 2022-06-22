@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+        <item android:id="@+id/home"
+            android:title="Home"
+            android:icon="@drawable/navigation_home"/>
+
+        <item android:id="@+id/wallet"
+            android:title="Wallet"
+            android:icon="@drawable/navigation_wallet"/>
+
+        <item android:id="@+id/myProfile"
+            android:title="My Profile"
+            android:icon="@drawable/followers_following_icon"/>
+
+        <item android:id="@+id/followers"
+            android:title="Followers"
+            android:icon="@drawable/ic_followers"/>
+
+        <item android:id="@+id/chat_history"
+            android:title="Chat History"
+            android:icon="@drawable/navigation_chat_history"/>
+
+        <item android:id="@+id/call_history"
+            android:title="Call History"
+            android:icon="@drawable/navigation_call_history"/>
+
+        <item android:id="@+id/notifications"
+            android:title="Notifications"
+            android:icon="@drawable/navigation_notification"/>
+
+        <item android:id="@+id/suggested_remedy"
+            android:title="Suggested Remedies"
+            android:icon="@drawable/ic_suggest_remedy"/>
+
+        <!--<item android:id="@+id/suggest_remedy"
+            android:title="Suggest Remedy"/>-->
+
+
+
+        <!--<item android:id="@+id/my_orders"
+            android:title="My Orders"
+            android:icon="@drawable/navigation_my_orders"/>-->
+
+
+        <!--<item android:id="@+id/astromarket"
+            android:title="Astromarket"
+            android:icon="@drawable/navigation_astromarket"/>-->
+
+        <!--<item android:id="@+id/report"
+            android:title="Report"
+            android:icon="@drawable/navigation_report"/>-->
+
+        <item android:id="@+id/setting"
+            android:title="Settings"
+            android:icon="@drawable/navigation_setting"/>
+    </group>
+
+
+</menu>

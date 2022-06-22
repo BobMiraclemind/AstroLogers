@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <soup.neumorphism.NeumorphCardView
+        android:id="@+id/image_container"
+        style="@style/Widget.Neumorph.CardView"
+        app:neumorph_shapeType="basin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:neumorph_shadowColorLight="#0D000000"
+        app:neumorph_shadowColorDark="#26000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/profile_img"
+            android:layout_width="60dp"
+            android:layout_height="65dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="22dp"
+            app:riv_border_color="@color/base_blue"
+            app:riv_border_width="2dp"
+            android:src="@drawable/place_holder"/>
+
+    </soup.neumorphism.NeumorphCardView>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Firstname"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+        app:layout_constraintTop_toBottomOf="@id/image_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

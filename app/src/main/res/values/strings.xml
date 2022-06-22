@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AstroLogers</string>
+
+    <string name="dummy">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonumy eirmod tempor invidunt ut labore et doloremagna aliquyam erat, sed diam voluptua.</string>
+    <string name="payable_amount">Payable Amount: <font color="#FFFFFF">₹</font> </string>
+    <string name="rupee">₹</string>
+    <string name="version_name"><font color="#006497">Version</font> - Beta v1.0.0 Release 20220305</string>
+    <string name="copyright">Copyright © 2022 Astrovedha Shastra Pvt. Ltd.\nAll right reserved</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="pg_charges"><b>PG Charges: </b> <font color="#EF5350">₹</font></string>
+    <string name="tds"><b>TDS: </b><font color="#EF5350">₹</font></string>
+    <string name="total_amount"><b><font color="#006794">Total Amount:</font></b> <font color="#494949"> ₹</font></string>
+    <string name="sort_by_all">Sort by: <font color="#006794">All</font> </string>
+    <string name="sort_by_solved">Sort by: <font color="#006794">Solved</font> </string>
+    <string name="sort_by_pending">Sort by: <font color="#006794">Pending</font> </string>
+    <string name="block_this_person"><u>Block this Person</u></string>
+
+</resources>
